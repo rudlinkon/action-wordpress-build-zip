@@ -1,6 +1,6 @@
 name: 'Generate WordPress Archive'
 description: 'Generates a zip archive of a WordPress project using WP-CLI'
-author: 'Linkon Miyan'
+author: 'rudlinkon'
 branding:
   icon: 'archive'
   color: 'blue'
@@ -8,7 +8,6 @@ inputs:
   retention-days:
     description: 'How many days to keep the zip archive'
     default: 7
-
 runs:
   using: 'composite'
   steps:

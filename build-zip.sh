@@ -1,8 +1,8 @@
 #!/bin/bash
-echo "start"
+
 # it does not exit with a 0, and we only care about the final exit.
 set -eo
-echo "end"
+
 # Install WP-CLI
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar
@@ -18,8 +18,8 @@ wp dist-archive . ./wordpress.zip
 echo "Uploading WordPress archive as artifact..."
 mkdir -p $HOME/artifacts
 mv ./wordpress.zip $HOME/artifacts/wordpress.zip
-echo "::set-output name=archive_path::$HOME/artifacts/wordpress.zip"
+echo "archive_path=$HOME/artifacts/wordpress.zip" >> $GITHUB_OUTPUT
 
 # Set retention days for the uploaded artifact
 echo "Setting retention days for the uploaded artifact..."
-echo "::set-env name=ARTIFACT_RETENTION_DAYS::7"  # Adjust retention days as needed
+echo "ARTIFACT_RETENTION_DAYS=7" >> "$GITHUB_ENV"

@@ -15,7 +15,7 @@ runs:
   steps:
     - name: Running the action to generate zip archive
       id: archive
-      run: ${{ github.action_path }}/build-zip.sh
+      run: ${{ github.action_path }}/run.sh
       shell: bash
 
     - name: Upload the archive as an artifact

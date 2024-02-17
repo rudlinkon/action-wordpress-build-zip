@@ -13,13 +13,3 @@ wp package install wp-cli/dist-archive-command
 
 # Generate WordPress Archive
 wp dist-archive . ./wordpress.zip
-
-# Upload Archive as GitHub Artifact
-echo "Uploading WordPress archive as artifact..."
-mkdir -p $HOME/artifacts
-mv ./wordpress.zip $HOME/artifacts/wordpress.zip
-echo "archive_path=$HOME/artifacts/wordpress.zip" >> $GITHUB_OUTPUT
-
-# Set retention days for the uploaded artifact
-echo "Setting retention days for the uploaded artifact..."
-echo "ARTIFACT_RETENTION_DAYS=7" >> "$GITHUB_ENV"

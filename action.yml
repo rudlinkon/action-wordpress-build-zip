@@ -1,13 +1,15 @@
 name: 'Generate WordPress Archive'
 description: 'Generates a zip archive of a WordPress project using WP-CLI'
-author: 'rudlinkon'
+author: 'Linkon Miyan'
 branding:
   icon: 'archive'
   color: 'blue'
+
 inputs:
   retention-days:
     description: 'How many days to keep the zip archive'
     default: 7
+
 runs:
   using: 'composite'
   steps:
@@ -15,3 +17,11 @@ runs:
       id: archive
       run: ${{ github.action_path }}/build-zip.sh
       shell: bash
+
+    - name: Upload the archive as an artifact
+      id: upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: ${{ github.event.repository.name }}
+        path: ./wordpress.zip
+        retention-days: ${{ inputs.retention-days }}

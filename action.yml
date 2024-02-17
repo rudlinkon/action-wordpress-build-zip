@@ -13,5 +13,6 @@ runs:
   using: 'composite'
   steps:
     - name: Running the action to generate zip archive
-      run: ${{ github.action_path }}/run.sh
+      id: archive
+      run: ${{ github.action_path }}/build-zip.sh
       shell: bash

@@ -3,7 +3,7 @@ description: 'Generates a zip archive of a WordPress project using WP-CLI'
 author: 'Linkon Miyan'
 branding:
   icon: 'archive'
-  color: 'blue'
+  color: 'green'
 
 inputs:
   retention-days:

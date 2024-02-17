@@ -1,8 +1,8 @@
 #!/bin/bash
-
+echo "start"
 # it does not exit with a 0, and we only care about the final exit.
 set -eo
-
+echo "end"
 # Install WP-CLI
 wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 chmod +x wp-cli.phar

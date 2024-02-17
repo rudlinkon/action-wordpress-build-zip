@@ -1,0 +1,17 @@
+name: 'Generate WordPress Archive'
+description: 'Generates a zip archive of a WordPress project using WP-CLI'
+author: 'Linkon Miyan'
+branding:
+  icon: 'archive'
+  color: 'blue'
+inputs:
+  retention-days:
+    description: 'How many days to keep the zip archive'
+    default: 7
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Running the action to generate zip archive
+      run: ${{ github.action_path }}/run.sh
+      shell: bash

@@ -18,7 +18,7 @@ runs:
       run: ${{ github.action_path }}/run.sh
       shell: bash
       env:
-        INSTALL_COMPOSER: true
+        INSTALL_COMPOSER: false
 
     - name: Upload the archive as an artifact
       id: upload

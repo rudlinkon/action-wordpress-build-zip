@@ -8,7 +8,7 @@ branding:
 inputs:
   retention-days:
     description: 'How many days to keep the zip archive'
-    default: 7
+    default: 3
   node-version:
     description: 'Which version of node do you want?'
     default: 16

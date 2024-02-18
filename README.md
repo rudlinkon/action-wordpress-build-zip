@@ -77,8 +77,15 @@ jobs:
       - name: Generating zip
         uses: rudlinkon/action-wordpress-build-zip@master
         with:
-          retention-days: 1 # Optional; defaults to 7
+          retention-days: 1 # Optional; defaults to 3
 ```
+
+## Options
+| Name | Type | Default | Usage |
+| `retention-days` | int | 3 | Configuring a custom artifact retention period |
+| `node-version` |  | int | 16 | Set you custom node version |
+| `install-composer` | bool | false | Composer dependencies will be installed if you enable this option |
+| `npm-run-build` |  | bool | false | `npm run build` will be run if you enable this option |
 
 ## License
 This action is licensed under the MIT License.

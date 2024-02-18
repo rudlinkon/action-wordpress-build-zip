@@ -2,6 +2,8 @@
 
 This GitHub Action automates the process of generating a zip archive of a WordPress project using WP-CLI and uploads it as an artifact.
 
+https://github.com/rudlinkon/action-wordpress-build-zip/assets/9977447/8fdaa6cc-beb6-49b1-bb67-f8af4bab473c
+
 ## Usage
 
 To use this action, you will want to copy the contents of one of these examples into `.github/workflows/build-archive.yml` and push that to your repository. You are welcome to name the file something else, but it must be in that directory. The usage of `ubuntu-latest` is recommended for compatibility with required dependencies in this Action. Here's an example workflow:

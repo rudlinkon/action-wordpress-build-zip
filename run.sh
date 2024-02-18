@@ -31,6 +31,16 @@ if [ "$INSTALL_COMPOSER" = "true" ]; then
   fi
 fi
 
+# Install Node.js and run npm build if requested
+if [ "$NPM_RUN_BUILD" = "true" ]; then
+  echo "✨Installing npm packages..."
+  npm install
+  echo '✅ Successfully installed npm packages'
+  echo "✨Running npm build..."
+  npm run build
+  echo '✅ Successfully npm build'
+fi
+
 # Generate WordPress Archive
 echo '✨Generating the archive file✨'
 wp dist-archive . ./wordpress.zip

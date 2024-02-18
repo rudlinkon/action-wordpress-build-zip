@@ -9,16 +9,26 @@ inputs:
   retention-days:
     description: 'How many days to keep the zip archive'
     default: 7
+  node-version:
+    description: 'Which version of node do you want?'
+    default: 16
 
 runs:
   using: 'composite'
   steps:
+    - name: Use specific node version
+      id: node-setup
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ inputs.node-version }}
+
     - name: Running the action to generate zip archive
       id: archive
       run: ${{ github.action_path }}/run.sh
       shell: bash
       env:
         INSTALL_COMPOSER: false
+        NPM_RUN_BUILD: false
 
     - name: Upload the archive as an artifact
       id: upload

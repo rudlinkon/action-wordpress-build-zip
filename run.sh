@@ -31,8 +31,8 @@ if [ "$INSTALL_COMPOSER" = "true" ]; then
   fi
 fi
 
-# Install Node.js and run npm build if requested
-if [ "$NPM_RUN_BUILD" = "true" ]; then
+# Run npm build if requested
+if [ "$NPM_RUN_BUILD" = "true" ] && [ -f "package.json" ]; then
   echo "✨Installing npm packages..."
   npm install
   echo '✅ Successfully installed npm packages'

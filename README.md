@@ -5,6 +5,28 @@ This GitHub Action automates the process of generating a zip archive of a WordPr
 ## Usage
 
 To use this action, you will want to copy the contents of one of these examples into `.github/workflows/build-archive.yml` and push that to your repository. You are welcome to name the file something else, but it must be in that directory. The usage of `ubuntu-latest` is recommended for compatibility with required dependencies in this Action. Here's an example workflow:
+### Build zip on demand and keep that for 1 day with installation of composer dependencies and npm build with specific node version
+```yml
+name: Generate WordPress Archive
+on:
+  workflow_dispatch
+
+jobs:
+  generate-archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Generating zip
+        uses: rudlinkon/action-wordpress-build-zip@master
+        with:
+          retention-days: 1 # Optional; defaults to 3
+          install-composer: true # Optional; defaults to false
+          npm-run-build: true # Optional; defaults to false
+          node-version: 20 # Optional; defaults to 16
+```
+
 ### Build zip on pushes to master
 ```yml
 name: Generate WordPress Archive

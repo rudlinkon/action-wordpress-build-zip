@@ -12,6 +12,12 @@ inputs:
   node-version:
     description: 'Which version of node do you want?'
     default: 16
+  install-composer:
+    description: 'Do you want to install composer?'
+    default: false
+  npm-run-build:
+    description: 'Do you want to run npm build?'
+    default: false
 
 runs:
   using: 'composite'
@@ -27,8 +33,8 @@ runs:
       run: ${{ github.action_path }}/run.sh
       shell: bash
       env:
-        INSTALL_COMPOSER: false
-        NPM_RUN_BUILD: false
+        INSTALL_COMPOSER: ${{ inputs.install-composer }}
+        NPM_RUN_BUILD: ${{ inputs.npm-run-build }}
 
     - name: Upload the archive as an artifact
       id: upload

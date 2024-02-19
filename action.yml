@@ -38,7 +38,7 @@ runs:
 
     - name: Unzip the archive
       id: unzip
-      run: unzip ${{ github.event.repository.name }}.zip -d dist-archive
+      run: unzip wordpress.zip -d dist-archive
       shell: bash
 
     - name: Upload the archive as an artifact

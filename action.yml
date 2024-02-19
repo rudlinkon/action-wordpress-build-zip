@@ -36,10 +36,15 @@ runs:
         INSTALL_COMPOSER: ${{ inputs.install-composer }}
         NPM_RUN_BUILD: ${{ inputs.npm-run-build }}
 
+    - name: Unzip the archive
+      id: unzip
+      run: unzip ${{ github.event.repository.name }}.zip -d dist-archive
+      shell: bash
+
     - name: Upload the archive as an artifact
       id: upload
       uses: actions/upload-artifact@v3
       with:
         name: ${{ github.event.repository.name }}
-        path: ./wordpress.zip
+        path: dist-archive
         retention-days: ${{ inputs.retention-days }}
